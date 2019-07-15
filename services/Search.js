@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const esAxios = axios.create({
-  baseURL: 'http://localhost:9200',
+  baseURL: 'https://search.anthive.io/stars-dev',
   timeout: 3000
 });
 
@@ -16,7 +16,7 @@ class Search  {
   }
 
   async searchStars(sort, page, size, filter) {
-    const handle = "/stars/_search";
+    const handle = "/_search";
     const query = {
       size: size,
       sort: sort,
@@ -33,7 +33,7 @@ class Search  {
   }
 
   async getStar(id) {
-    const handle = "/stars/_doc/"+id;
+    const handle = "/_doc/"+id;
     const resp = await esAxios.get(handle, "");
 
     if(resp.status == 200){

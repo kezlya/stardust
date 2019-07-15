@@ -114,7 +114,7 @@ export default {
       this.columns.forEach(col => {
         if (col.sort != null){
           let sr = {};
-          sr[col.value] = col.sort;
+          sr[col.value+".keyword"] = col.sort;
           this.sort.push(sr);
         }
       });
