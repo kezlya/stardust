@@ -156,7 +156,7 @@ export default {
       //TODO: add pagination Hardcoded 20
 
       this.loading = true;
-      searchService.searchGames(this.sort, this.currentPage, 20, []).then(stars =>{
+      searchService.searchStars(this.sort, this.currentPage, 20, []).then(stars =>{
         if (stars != null) {
           this.pages = Math.ceil(stars.total/20);
           this.items = stars.hits;
