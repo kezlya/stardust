@@ -15,9 +15,8 @@ class Search  {
     };
   }
 
-  async searchGames(sort, page, size, filter) {
+  async searchStars(sort, page, size, filter) {
     const handle = "/stars/_search";
-    console.log("ooo",sort);
     const query = {
       size: size,
       sort: sort,
@@ -29,6 +28,16 @@ class Search  {
 
     if(resp.status == 200){
       return resp.data.hits;
+    }
+    return null;
+  }
+
+  async getStar(id) {
+    const handle = "/stars/_doc/"+id;
+    const resp = await esAxios.get(handle, "");
+
+    if(resp.status == 200){
+      return resp.data._source;
     }
     return null;
   }
